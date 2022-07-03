@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Assets/Fonts/TitleFont.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Assets/Scenes/Controls.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/Scripts/Scences/Pause/Pause.gd" type="Script" id=3]
+
+[node name="Pause" type="Control"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.196078 )
+
+[node name="Control" parent="." instance=ExtResource( 2 )]
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer"]
+margin_right = 768.0
+margin_bottom = 576.0
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer/CenterContainer"]
+margin_left = 384.0
+margin_top = 288.0
+margin_right = 384.0
+margin_bottom = 288.0
+color = Color( 0, 0, 0, 0.588235 )
+
+[node name="PauseLabel" type="Label" parent="MarginContainer/CenterContainer"]
+margin_left = 234.0
+margin_top = 263.0
+margin_right = 534.0
+margin_bottom = 313.0
+custom_fonts/font = ExtResource( 1 )
+text = "Pause"
+align = 1
+valign = 1

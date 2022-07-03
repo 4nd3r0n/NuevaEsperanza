@@ -1,0 +1,9 @@
+[gd_resource type="DynamicFont" load_steps=2 format=2]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://Assets/Fonts/8_bit_arcade/8-bit Arcade In.ttf"
+
+[resource]
+size = 120
+extra_spacing_top = -30
+font_data = SubResource( 1 )

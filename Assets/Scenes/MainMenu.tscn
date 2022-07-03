@@ -1,42 +1,140 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Assets/Scripts/MainMenu/MainMenu.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Scripts/Scences/MainMenu/MainMenu.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Fonts/ButtonFont.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Assets/Scenes/Config.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Assets/Scenes/Nevels/NevelTest.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Assets/Fonts/TitleFont.tres" type="DynamicFont" id=5]
+[ext_resource path="res://Assets/Scenes/Controls.tscn" type="PackedScene" id=6]
 
 [node name="MainMenu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+
+[node name="Nevel" parent="." instance=ExtResource( 4 )]
 
 [node name="BackGroundColor" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0, 0, 0, 1 )
+color = Color( 0, 0, 0, 0.588235 )
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-anchor_top = 1.0
+[node name="Control" parent="." instance=ExtResource( 6 )]
+
+[node name="MainMenuContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 141.0
-margin_top = -266.0
-margin_right = 412.0
-margin_bottom = -83.0
+margin_left = 50.0
+margin_top = 50.0
+margin_right = -50.0
+margin_bottom = -50.0
 
-[node name="Button" type="Button" parent="VBoxContainer"]
-margin_right = 271.0
-margin_bottom = 20.0
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenuContainer"]
+margin_right = 668.0
+margin_bottom = 476.0
 
-[node name="Button2" type="Button" parent="VBoxContainer"]
-margin_top = 24.0
-margin_right = 271.0
-margin_bottom = 44.0
+[node name="LogoContainer" type="CenterContainer" parent="MainMenuContainer/VBoxContainer"]
+margin_right = 668.0
+margin_bottom = 103.0
 
-[node name="Button3" type="Button" parent="VBoxContainer"]
-margin_top = 48.0
-margin_right = 271.0
-margin_bottom = 68.0
+[node name="Label" type="Label" parent="MainMenuContainer/VBoxContainer/LogoContainer"]
+margin_left = 7.0
+margin_right = 661.0
+margin_bottom = 103.0
+custom_fonts/font = ExtResource( 5 )
+text = "Nueva
+   Esperanza"
 
-[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_Button_pressed"]
-[connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_Button2_pressed"]
-[connection signal="pressed" from="VBoxContainer/Button3" to="." method="_on_Button3_pressed"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenuContainer/VBoxContainer"]
+margin_top = 107.0
+margin_right = 668.0
+margin_bottom = 476.0
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainMenuContainer/VBoxContainer/VBoxContainer"]
+margin_right = 668.0
+margin_bottom = 369.0
+size_flags_vertical = 3
+
+[node name="ButtonsContiner" type="VBoxContainer" parent="MainMenuContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
+margin_right = 184.0
+margin_bottom = 369.0
+size_flags_vertical = 3
+custom_constants/separation = 0
+alignment = 2
+
+[node name="StartButton" type="Button" parent="MainMenuContainer/VBoxContainer/VBoxContainer/HBoxContainer/ButtonsContiner"]
+margin_top = 261.0
+margin_right = 184.0
+margin_bottom = 297.0
+focus_mode = 0
+custom_colors/font_color_hover = Color( 0.509804, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 1, 0, 0, 1 )
+custom_fonts/font = ExtResource( 2 )
+button_mask = 3
+enabled_focus_mode = 0
+text = "Start"
+flat = true
+align = 0
+
+[node name="SettingsButton" type="Button" parent="MainMenuContainer/VBoxContainer/VBoxContainer/HBoxContainer/ButtonsContiner"]
+margin_top = 297.0
+margin_right = 184.0
+margin_bottom = 333.0
+focus_mode = 0
+custom_colors/font_color_hover = Color( 0.541176, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 1, 0, 0, 1 )
+custom_fonts/font = ExtResource( 2 )
+button_mask = 3
+enabled_focus_mode = 0
+text = "Settings"
+flat = true
+align = 0
+
+[node name="ExitButton" type="Button" parent="MainMenuContainer/VBoxContainer/VBoxContainer/HBoxContainer/ButtonsContiner"]
+margin_top = 333.0
+margin_right = 184.0
+margin_bottom = 369.0
+focus_mode = 0
+custom_colors/font_color_hover = Color( 0.537255, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 1, 0, 0, 1 )
+custom_fonts/font = ExtResource( 2 )
+button_mask = 3
+enabled_focus_mode = 0
+text = "Exit"
+flat = true
+align = 0
+
+[node name="SplashContainer" type="CenterContainer" parent="MainMenuContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
+margin_left = 188.0
+margin_right = 668.0
+margin_bottom = 369.0
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+margin_left = 648.0
+margin_top = 520.0
+margin_right = 764.0
+margin_bottom = 574.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+margin_right = 116.0
+margin_bottom = 54.0
+
+[node name="VersionContainer" type="VBoxContainer" parent="MarginContainer"]
+margin_right = 116.0
+margin_bottom = 54.0
+alignment = 2
+
+[node name="VersionLabel" type="Label" parent="MarginContainer/VersionContainer"]
+margin_top = 40.0
+margin_right = 116.0
+margin_bottom = 54.0
+text = "Version 1.0.2 beta"
+
+[node name="Config" parent="." instance=ExtResource( 3 )]
+visible = false
+
+[connection signal="pressed" from="MainMenuContainer/VBoxContainer/VBoxContainer/HBoxContainer/ButtonsContiner/StartButton" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="MainMenuContainer/VBoxContainer/VBoxContainer/HBoxContainer/ButtonsContiner/SettingsButton" to="." method="_on_Button2_pressed"]
+[connection signal="pressed" from="MainMenuContainer/VBoxContainer/VBoxContainer/HBoxContainer/ButtonsContiner/ExitButton" to="." method="_on_Button3_pressed"]

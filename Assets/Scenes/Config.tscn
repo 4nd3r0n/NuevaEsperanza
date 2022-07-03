@@ -1,0 +1,76 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Assets/Fonts/ButtonFont.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Assets/Scripts/Scences/Config/Config.gd" type="Script" id=2]
+
+[node name="Config" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.196078 )
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 50.0
+margin_top = 205.0
+margin_right = -459.0
+margin_bottom = -50.0
+
+[node name="ColorRect2" type="ColorRect" parent="MarginContainer"]
+margin_right = 259.0
+margin_bottom = 321.0
+color = Color( 0, 0, 0, 0.588235 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+margin_right = 259.0
+margin_bottom = 321.0
+custom_constants/separation = 0
+alignment = 2
+
+[node name="FullSceenButton" type="Button" parent="MarginContainer/VBoxContainer"]
+margin_top = 213.0
+margin_right = 259.0
+margin_bottom = 249.0
+focus_mode = 0
+custom_colors/font_color_hover = Color( 0.533333, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 1, 0, 0, 1 )
+custom_fonts/font = ExtResource( 1 )
+enabled_focus_mode = 0
+text = "FullScreen"
+flat = true
+align = 0
+
+[node name="ApplyButton" type="Button" parent="MarginContainer/VBoxContainer"]
+margin_top = 249.0
+margin_right = 259.0
+margin_bottom = 285.0
+focus_mode = 0
+custom_colors/font_color_hover = Color( 0.533333, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 1, 0, 0, 1 )
+custom_fonts/font = ExtResource( 1 )
+enabled_focus_mode = 0
+text = "Apply"
+flat = true
+align = 0
+
+[node name="BackButton" type="Button" parent="MarginContainer/VBoxContainer"]
+margin_top = 285.0
+margin_right = 259.0
+margin_bottom = 321.0
+focus_mode = 0
+custom_colors/font_color_hover = Color( 0.533333, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 1, 0, 0, 1 )
+custom_fonts/font = ExtResource( 1 )
+enabled_focus_mode = 0
+text = "Back"
+flat = true
+align = 0
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/FullSceenButton" to="." method="_on_FullSceenButton_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ApplyButton" to="." method="_on_ApplyButton_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/BackButton" to="." method="_on_BackButton_pressed"]
